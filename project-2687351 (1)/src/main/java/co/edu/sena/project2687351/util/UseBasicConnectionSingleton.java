@@ -11,15 +11,12 @@ public class UseBasicConnectionSingleton {
             SQLException {
         try (Connection conn = BasicConnectionSingleton.getInstance();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM my_app.users_tbl")) {
+             ResultSet rs = stmt.executeQuery("SELECT * FROM my_app.users")) {
  while (rs.next()) {
 
-            System.out.print(rs.getString("user_firstname")
-            );
+            System.out.print(rs.getString("user_firstname"));
             System.out.print(" | ");
-
-            System.out.println(rs.getString("user_lastname"
-            ));
+            System.out.println(rs.getString("user_lastname"));
         }
     }
 }

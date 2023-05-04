@@ -5,24 +5,23 @@ import java.sql.*;
 public class BasicConnection {
     public static void main(String[] args)
     {
-        String url = "jdbc:mysql://localhost:3306/my_app?serve rTimezone=America/Bogota";
-        String username = "Login";
-        String password = "";
+        String url = "jdbc:mysql://localhost:3306/#?serve rTimezone=America/Bogota";
+        String username = "#";
+        String password = "#";
         String sql = null;
         Connection conn = null;
         Statement stm = null;
         ResultSet rs = null;
         try {
-            sql = "SELECT * FROM my_app.users_tbl";
+            sql = "SELECT * FROM my_app.users";
             conn = DriverManager.getConnection(url, username, password);
             stm = conn.createStatement();
             rs = stm.executeQuery(sql);
             while (rs.next()) {
 
-                System.out.print(rs.getString("user_first name"));
+                System.out.print(rs.getString("user_firstname"));
                         System.out.print(" | ");
-
-                System.out.println(rs.getString("user_las tname"));
+                System.out.println(rs.getString("user_lastname"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
