@@ -11,7 +11,7 @@ public class UseBasicConnectionSingleton {
             SQLException {
         try (Connection conn = BasicConnectionSingleton.getInstance();
              Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery("SELECT * FROM my_app.users")) {
+             ResultSet rs = stmt.executeQuery("SELECT * FROM Login.users")) {
  while (rs.next()) {
 
             System.out.print(rs.getString("user_firstname"));
