@@ -27,7 +27,7 @@
 <section>
 
 <main class="form-signin w-100 m-auto">
-    <form action="" method="post">
+    <form action="registerUser" method="post">
 
         <img class="mb-4" src="./img/gatito.jpg" alt="MY APP " width="100">
 
