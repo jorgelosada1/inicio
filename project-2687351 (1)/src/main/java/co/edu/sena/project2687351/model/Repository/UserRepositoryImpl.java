@@ -24,8 +24,8 @@ public class UserRepositoryImpl implements Repository{
 
     @Override
     public List listAllobj() throws SQLException {
-        sql = "select u.user_id, u.user_firstname, u.user_lastname, u.user_email " +
-                "from users_tbl u orden by u.user_lastname, u.user_firstname";
+        sql = "select u.user_id, u.user_firstname, u.user_lastname, u.user_email, u.user_password " +
+                "from users u order by u.user_lastname, u.user_firstname";
         List<User> users = new ArrayList<>();
         try(Connection conn = DBConnection.getConnection();
             Statement stmt = conn.createStatement();
@@ -42,8 +42,8 @@ public class UserRepositoryImpl implements Repository{
 
     @Override
     public Object byIdObj(Integer id) throws SQLException {
-        sql = "select u.user_id, u.user_firstname, u.user_lastname, u.user_email"+
-                "from user_tbl u where u.user_id = ?";
+        sql = "select u.user_id, u.user_firstname, u.user_lastname, u.user_email, u.user_password "+
+                "from users u where u.user_id = ?";
         User user = null;
         try (Connection conn = DBConnection.getConnection();
         PreparedStatement ps = conn.prepareStatement(sql)){
